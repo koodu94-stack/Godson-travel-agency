@@ -1,0 +1,47 @@
+-- Travel Agency Database Schema
+
+CREATE TABLE customers (
+    customer_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    phone VARCHAR(20),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE destinations (
+    destination_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    country VARCHAR(100),
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE packages (
+    package_id SERIAL PRIMARY KEY,
+    destination_id INT REFERENCES destinations(destination_id),
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2),
+    duration_days INT,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE bookings (
+    booking_id SERIAL PRIMARY KEY,
+    customer_id INT REFERENCES customers(customer_id),
+    package_id INT REFERENCES packages(package_id),
+    booking_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    travel_date DATE,
+    status VARCHAR(50),
+    total_price DECIMAL(10, 2)
+);
+
+CREATE TABLE payments (
+    payment_id SERIAL PRIMARY KEY,
+    booking_id INT REFERENCES bookings(booking_id),
+    amount DECIMAL(10, 2),
+    payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    payment_method VARCHAR(50),
+    status VARCHAR(50)
+);
