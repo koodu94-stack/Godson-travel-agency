@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Godson Travel Agency | Travel Africa from Lagos</title>
+<meta name="description" content="Godson Travel Agency — Your trusted partner for travel from Lagos to destinations across Africa. Flights, visas, tours, and hotel bookings made simple.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================= */
+  /*  ROOT VARIABLES & RESET       */
+  /* ============================= */
+  :root{
+    --blue-deep:#0a2540;
+    --blue-primary:#1360d6;
+    --blue-bright:#2f7ef7;
+    --blue-pale:#eaf2fe;
+    --blue-pale-2:#f4f9ff;
+    --white:#ffffff;
+    --grey-text:#5a6b7d;
+    --border:#e3ecf7;
+    --shadow:0 10px 30px rgba(10,37,64,0.08);
+    --shadow-hover:0 16px 40px rgba(19,96,214,0.18);
+    --radius:16px;
+    --transition:0.3s ease;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--blue-deep);
+    background:var(--white);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,h4{ font-family:'Poppins', sans-serif; }
+
+  a{ text-decoration:none; color:inherit; }
+  ul{ list-style:none; }
+  img{ max-width:100%; display:block; }
+  button{ font-family:inherit; cursor:pointer; border:none; }
+
+  .container{
+    width:100%;
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  section.page{ display:none; animation:fadeIn 0.5s ease; }
+  section.page.active{ display:block; }
+
+  @keyframes fadeIn{
+    from{ opacity:0; transform:translateY(12px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  /* ============================= */
+  /*  NAVBAR                       */
+  /* ============================= */
+  header.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+    transition:box-shadow var(--transition);
+  }
+  header.navbar.scrolled{ box-shadow:0 4px 18px rgba(10,37,64,0.08); }
+
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Poppins', sans-serif;
+    font-weight:700;
+    font-size:1.25rem;
+    color:var(--blue-deep);
+  }
+  .brand svg{ flex-shrink:0; }
+  .brand span.highlight{ color:var(--blue-primary); }
+
+  nav.nav-links{
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+
+  nav.nav-links a{
+    position:relative;
+    padding:10px 18px;
+    font-weight:600;
+    font-size:0.95rem;
+    color:var(--grey-text);
+    border-radius:30px;
+    transition:all var(--transition);
+  }
+
+  nav.nav-links a:hover{
+    color:var(--blue-primary);
+    background:var(--blue-pale);
+  }
+
+  nav.nav-links a.active{
+    color:var(--white);
+    background:linear-gradient(135deg, var(--blue-primary), var(--blue-bright));
+    box-shadow:0 6px 16px rgba(19,96,214,0.3);
+  }
+
+  /* Mobile menu toggle */
+  .menu-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    padding:6px;
+  }
+  .menu-toggle span{
+    width:24px;
+    height:2.5px;
+    background:var(--blue-deep);
+    border-radius:2px;
+    transition:all var(--transition);
+  }
+
+  /* ============================= */
+  /*  BUTTONS                      */
+  /* ============================= */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 30px;
+    border-radius:50px;
+    font-weight:600;
+    font-size:0.95rem;
+    transition:all var(--transition);
+  }
+
+  .btn-primary{
+    background:linear-gradient(135deg, var(--blue-primary), var(--blue-bright));
+    color:var(--white);
+    box-shadow:0 8px 22px rgba(19,96,214,0.3);
+  }
+  .btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 14px 30px rgba(19,96,214,0.4);
+  }
+
+  .btn-outline{
+    background:transparent;
+    color:var(--white);
+    border:2px solid rgba(255,255,255,0.6);
+  }
+  .btn-outline:hover{
+    background:rgba(255,255,255,0.15);
+    border-color:var(--white);
+    transform:translateY(-3px);
+  }
+
+  .btn-small{
+    padding:10px 22px;
+    font-size:0.85rem;
+    background:var(--blue-pale);
+    color:var(--blue-primary);
+    border-radius:40px;
+  }
+  .btn-small:hover{
+    background:var(--blue-primary);
+    color:var(--white);
+    transform:translateY(-2px);
+  }
+
+  /* ============================= */
+  /*  HERO (Home)                  */
+  /* ============================= */
+  .hero{
+    position:relative;
+    min-height:88vh;
+    display:flex;
+    align-items:center;
+    background:
+      linear-gradient(120deg, rgba(10,37,64,0.85) 10%, rgba(19,96,214,0.55) 100%),
+      url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=1400&q=80&auto=format&fit=crop') center/cover no-repeat;
+    color:var(--white);
+    overflow:hidden;
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute;
+    bottom:-2px; left:0; right:0;
+    height:80px;
+    background:var(--white);
+    clip-path:polygon(0 100%, 100% 100%, 100% 0, 0 60%);
+  }
+
+  .hero-content{
+    max-width:640px;
+    padding:60px 24px;
+    animation:slideUp 0.9s ease;
+  }
+
+  @keyframes slideUp{
+    from{ opacity:0; transform:translateY(30px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .hero-badge{
+    display:inline-block;
+    padding:8px 18px;
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.4);
+    border-radius:30px;
+    font-size:0.85rem;
+    font-weight:600;
+    margin-bottom:22px;
+    letter-spacing:0.3px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.2rem, 5vw, 3.4rem);
+    font-weight:800;
+    line-height:1.15;
+    margin-bottom:20px;
+  }
+
+  .hero h1 .accent{ color:#a9cbff; }
+
+  .hero p{
+    font-size:1.08rem;
+    color:rgba(255,255,255,0.9);
+    margin-bottom:34px;
+    max-width:520px;
+  }
+
+  .hero-buttons{ display:flex; gap:16px; flex-wrap:wrap; }
+
+  /* ============================= */
+  /*  SECTION GENERIC               */
+  /* ============================= */
+  .section{ padding:90px 0; }
+  .section-alt{ background:var(--blue-pale-2); }
+
+  .section-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 56px;
+  }
+
+  .eyebrow{
+    display:inline-block;
+    color:var(--blue-primary);
+    font-weight:700;
+    font-size:0.8rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+  }
+
+  .section-head h2{
+    font-size:clamp(1.7rem, 3.5vw, 2.4rem);
+    font-weight:700;
+    color:var(--blue-deep);
+    margin-bottom:16px;
+  }
+
+  .section-head p{ color:var(--grey-text); font-size:1.02rem; }
+
+  /* ============================= */
+  /*  HOME - Why choose us          */
+  /* ============================= */
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+
+  .feature-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:36px 28px;
+    text-align:left;
+    transition:all var(--transition);
+  }
+  .feature-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-hover);
+    border-color:transparent;
+  }
+
+  .icon-circle{
+    width:58px; height:58px;
+    border-radius:16px;
+    background:var(--blue-pale);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem;
+    margin-bottom:20px;
+    transition:all var(--transition);
+  }
+  .feature-card:hover .icon-circle{
+    background:linear-gradient(135deg, var(--blue-primary), var(--blue-bright));
+    transform:rotate(-8deg) scale(1.05);
+  }
+
+  .feature-card h3{ font-size:1.15rem; margin-bottom:10px; color:var(--blue-deep); }
+  .feature-card p{ color:var(--grey-text); font-size:0.95rem; }
+
+  /* Stats strip */
+  .stats-strip{
+    background:linear-gradient(120deg, var(--blue-deep), var(--blue-primary));
+    color:var(--white);
+    border-radius:20px;
+    padding:44px 30px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    text-align:center;
+    margin-top:70px;
+  }
+  .stats-strip .stat h3{ font-size:2.2rem; font-weight:800; margin-bottom:6px; }
+  .stats-strip .stat p{ color:rgba(255,255,255,0.85); font-size:0.88rem; }
+
+  /* Destinations chips (Home) */
+  .destinations{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:14px;
+    margin-top:10px;
+  }
+  .dest-chip{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:var(--white);
+    border:1px solid var(--border);
+    padding:12px 20px;
+    border-radius:40px;
+    font-weight:600;
+    font-size:0.92rem;
+    transition:all var(--transition);
+  }
+  .dest-chip:hover{
+    background:var(--blue-primary);
+    color:var(--white);
+    transform:translateY(-3px);
+    box-shadow:var(--shadow-hover);
+  }
+
+  /* CTA banner */
+  .cta-banner{
+    background:linear-gradient(120deg, var(--blue-primary), var(--blue-bright));
+    border-radius:24px;
+    padding:56px 40px;
+    text-align:center;
+    color:var(--white);
+    position:relative;
+    overflow:hidden;
+  }
+  .cta-banner h2{ font-size:1.9rem; margin-bottom:14px; }
+  .cta-banner p{ color:rgba(255,255,255,0.9); margin-bottom:28px; }
+
+  /* ============================= */
+  /*  ABOUT PAGE                    */
+  /* ============================= */
+  .about-flex{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+  }
+
+  .about-visual{
+    background:linear-gradient(135deg, var(--blue-pale), var(--blue-pale-2));
+    border-radius:24px;
+    padding:50px 30px;
+    text-align:center;
+    border:1px solid var(--border);
+  }
+  .about-visual .big-emoji{ font-size:5rem; margin-bottom:10px; }
+  .about-visual h4{ color:var(--blue-primary); font-size:1.3rem; margin-bottom:6px;}
+  .about-visual p{ color:var(--grey-text); font-size:0.95rem; }
+
+  .about-text h2{ font-size:2rem; margin-bottom:18px; color:var(--blue-deep); }
+  .about-text p{ color:var(--grey-text); margin-bottom:18px; }
+
+  .values-list{ display:flex; flex-direction:column; gap:16px; margin-top:24px; }
+  .value-item{ display:flex; gap:14px; align-items:flex-start; }
+  .value-item .dot{
+    min-width:34px; height:34px;
+    background:var(--blue-pale);
+    border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1rem;
+  }
+  .value-item h4{ font-size:1rem; margin-bottom:3px; color:var(--blue-deep); }
+  .value-item p{ font-size:0.9rem; color:var(--grey-text); margin:0;}
+
+  /* Timeline / process (About) */
+  .timeline{
+    margin-top:70px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+  }
+  .timeline-step{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:28px 22px;
+    position:relative;
+    transition:all var(--transition);
+  }
+  .timeline-step:hover{ box-shadow:var(--shadow); transform:translateY(-5px); }
+  .timeline-step .step-num{
+    width:36px; height:36px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--blue-primary), var(--blue-bright));
+    color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:0.9rem;
+    margin-bottom:16px;
+  }
+  .timeline-step h4{ font-size:1rem; margin-bottom:8px; }
+  .timeline-step p{ font-size:0.88rem; color:var(--grey-text); }
+
+  /* ============================= */
+  /*  SERVICES PAGE                 */
+  /* ============================= */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+
+  .service-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:32px 26px;
+    display:flex;
+    flex-direction:column;
+    transition:all var(--transition);
+    position:relative;
+    overflow:hidden;
+  }
+  .service-card::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg, var(--blue-primary), var(--blue-bright));
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform var(--transition);
+  }
+  .service-card:hover::before{ transform:scaleX(1); }
+  .service-card:hover{ box-shadow:var(--shadow-hover); transform:translateY(-6px); }
+
+  .service-emoji{
+    font-size:2.2rem;
+    margin-bottom:18px;
+    width:64px; height:64px;
+    background:var(--blue-pale);
+    border-radius:16px;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .service-card h3{ font-size:1.15rem; margin-bottom:10px; color:var(--blue-deep); }
+  .service-card p{ color:var(--grey-text); font-size:0.92rem; margin-bottom:22px; flex-grow:1; }
+
+  .service-card .book-btn{
+    align-self:flex-start;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-weight:600;
+    font-size:0.88rem;
+    color:var(--blue-primary);
+    padding:9px 18px;
+    border:1.5px solid var(--blue-primary);
+    border-radius:30px;
+    transition:all var(--transition);
+  }
+  .service-card .book-btn:hover{
+    background:var(--blue-primary);
+    color:var(--white);
+  }
+
+  /* Booking note box */
+  .booking-note{
+    margin-top:60px;
+    background:var(--blue-pale);
+    border:1px dashed var(--blue-primary);
+    border-radius:var(--radius);
+    padding:30px 32px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .booking-note .icon-circle{ background:var(--white); margin-bottom:0; }
+  .booking-note-text h4{ margin-bottom:6px; }
+  .booking-note-text p{ color:var(--grey-text); font-size:0.92rem; }
+
+  /* ============================= */
+  /*  CONTACT PAGE                  */
+  /* ============================= */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+  }
+
+  .contact-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:44px;
+    box-shadow:var(--shadow);
+  }
+
+  .contact-card h3{ font-size:1.4rem; margin-bottom:12px; }
+  .contact-card > p{ color:var(--grey-text); margin-bottom:30px; }
+
+  .contact-row{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:16px 0;
+    border-bottom:1px solid var(--border);
+  }
+  .contact-row:last-of-type{ border-bottom:none; }
+  .contact-row .icon-circle{ margin-bottom:0; flex-shrink:0; }
+  .contact-row h4{ font-size:0.95rem; margin-bottom:2px; }
+  .contact-row p, .contact-row a{ color:var(--grey-text); font-size:0.92rem; }
+  .contact-row a:hover{ color:var(--blue-primary); }
+
+  .email-btn-wrap{ margin-top:30px; }
+
+  .contact-side{
+    background:linear-gradient(150deg, var(--blue-deep), var(--blue-primary));
+    border-radius:20px;
+    padding:44px 34px;
+    color:var(--white);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+  .contact-side h3{ font-size:1.3rem; margin-bottom:14px; }
+  .contact-side p{ color:rgba(255,255,255,0.85); margin-bottom:26px; font-size:0.95rem; }
+
+  .social-row{ display:flex; gap:12px; }
+  .social-icon{
+    width:44px; height:44px;
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.25);
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    transition:all var(--transition);
+  }
+  .social-icon:hover{ background:rgba(255,255,255,0.28); transform:translateY(-3px); }
+
+  .hours-list{ margin-top:26px; }
+  .hours-list li{
+    display:flex; justify-content:space-between;
+    font-size:0.88rem;
+    padding:6px 0;
+    color:rgba(255,255,255,0.85);
+    border-bottom:1px solid rgba(255,255,255,0.15);
+  }
+  .hours-list li:last-child{ border-bottom:none; }
+
+  /* ============================= */
+  /*  FOOTER                        */
+  /* ============================= */
+  footer{
+    background:var(--blue-deep);
+    color:rgba(255,255,255,0.85);
+    padding:60px 0 0;
+  }
+
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+
+  .footer-brand{ display:flex; align-items:center; gap:10px; font-family:'Poppins',sans-serif; font-weight:700; font-size:1.15rem; color:var(--white); margin-bottom:14px; }
+  .footer-col p{ font-size:0.9rem; line-height:1.7; color:rgba(255,255,255,0.65); }
+  .footer-col h4{ color:var(--white); font-size:1rem; margin-bottom:18px; font-family:'Poppins',sans-serif; }
+  .footer-col ul li{ margin-bottom:10px; }
+  .footer-col ul a{
+    font-size:0.9rem;
+    color:rgba(255,255,255,0.65);
+    transition:all var(--transition);
+    cursor:pointer;
+  }
+  .footer-col ul a:hover{ color:var(--white); padding-left:4px; }
+
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:24px 0;
+    font-size:0.85rem;
+    color:rgba(255,255,255,0.55);
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .footer-bottom a{ color:rgba(255,255,255,0.55); }
+  .footer-bottom a:hover{ color:var(--white); }
+
+  /* ============================= */
+  /*  RESPONSIVE                    */
+  /* ============================= */
+  @media (max-width: 900px){
+    .grid-3, .services-grid{ grid-template-columns:repeat(2,1fr); }
+    .about-flex{ grid-template-columns:1fr; gap:36px; }
+    .contact-grid{ grid-template-columns:1fr; }
+    .timeline{ grid-template-columns:repeat(2,1fr); }
+    .stats-strip{ grid-template-columns:repeat(2,1fr); }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+  }
+
+  @media (max-width: 720px){
+    nav.nav-links{
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--white);
+      flex-direction:column;
+      align-items:stretch;
+      padding:14px;
+      gap:4px;
+      border-bottom:1px solid var(--border);
+      box-shadow:0 12px 24px rgba(10,37,64,0.08);
+      display:none;
+    }
+    nav.nav-links.open{ display:flex; }
+    nav.nav-links a{ text-align:center; }
+    .menu-toggle{ display:flex; }
+    .hero{ min-height:auto; padding-top:20px; }
+    .hero-content{ padding:70px 20px 90px; }
+    .hero-buttons{ justify-content:center; }
+    .hero-buttons .btn{ width:100%; justify-content:center; }
+  }
+
+  @media (max-width: 600px){
+    .grid-3, .services-grid, .timeline, .footer-grid{ grid-template-columns:1fr; }
+    .stats-strip{ grid-template-columns:1fr 1fr; }
+    .section{ padding:64px 0; }
+    .contact-card{ padding:28px; }
+    .cta-banner{ padding:40px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================= -->
+<!--  NAVIGATION                   -->
+<!-- ============================= -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="brand" data-link data-page="home">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 16.5L22 8L18 20L12 16L8 22L7 15.5L2 16.5Z" fill="#1360d6"/>
+        <path d="M8 22L12 16L7 15.5L8 22Z" fill="#0a2540"/>
+      </svg>
+      Godson <span class="highlight">Travel</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#" data-link data-page="home">Home</a>
+      <a href="#" data-link data-page="about">About</a>
+      <a href="#" data-link data-page="services">Services</a>
+      <a href="#" data-link data-page="contact">Contact</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================= -->
+<!--  HOME PAGE                    -->
+<!-- ============================= -->
+<section class="page" id="page-home">
+
+  <div class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge">✈️ Trusted Travel Partner Since Day One</span>
+        <h1>Explore <span class="accent">Africa</span>, Starting Right Here in Lagos</h1>
+        <p>Godson Travel Agency makes it simple to book flights, secure visas, and plan unforgettable trips to destinations across Africa — all handled with care, speed, and honesty.</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary" data-link data-page="services">Book a Trip 🌍</a>
+          <a href="#" class="btn btn-outline" data-link data-page="contact">Talk to Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Why Godson Travel</span>
+        <h2>Travel Made Simple, From Lagos to Anywhere in Africa</h2>
+        <p>We handle the details so you can focus on the adventure — every booking backed by real support.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="feature-card">
+          <div class="icon-circle">🛫</div>
+          <h3>Seamless Flight Booking</h3>
+          <p>We find and book the best flight routes from Lagos to major African cities, at fair prices.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-circle">📋</div>
+          <h3>Visa & Documentation Support</h3>
+          <p>From application to approval, our team guides you through every travel document you need.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-circle">🤝</div>
+          <h3>Personalized Service</h3>
+          <p>Every trip is planned around you — your budget, your schedule, and your travel goals.</p>
+        </div>
+      </div>
+
+      <div class="stats-strip">
+        <div class="stat"><h3>10+</h3><p>African Destinations</p></div>
+        <div class="stat"><h3>1,200+</h3><p>Trips Booked</p></div>
+        <div class="stat"><h3>98%</h3><p>Client Satisfaction</p></div>
+        <div class="stat"><h3>24/7</h3><p>Booking Support</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-alt">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Popular Routes</span>
+        <h2>Where Would You Like to Go?</h2>
+        <p>A few of the favorite destinations our clients book from Lagos.</p>
+      </div>
+      <div class="destinations">
+        <span class="dest-chip">🇬🇭 Accra, Ghana</span>
+        <span class="dest-chip">🇰🇪 Nairobi, Kenya</span>
+        <span class="dest-chip">🇿🇦 Cape Town, South Africa</span>
+        <span class="dest-chip">🇪🇬 Cairo, Egypt</span>
+        <span class="dest-chip">🇷🇼 Kigali, Rwanda</span>
+        <span class="dest-chip">🇹🇿 Zanzibar, Tanzania</span>
+        <span class="dest-chip">🇸🇳 Dakar, Senegal</span>
+        <span class="dest-chip">🇲🇦 Marrakech, Morocco</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Ready to Plan Your Next Trip?</h2>
+        <p>Reach out today and let's start planning your journey across Africa.</p>
+        <a href="#" class="btn btn-outline" style="color:#fff;border-color:#fff" data-link data-page="contact">Get in Touch →</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================= -->
+<!--  ABOUT PAGE                   -->
+<!-- ============================= -->
+<section class="page" id="page-about">
+  <div class="section">
+    <div class="container">
+      <div class="about-flex">
+        <div class="about-text">
+          <span class="eyebrow">About Us</span>
+          <h2>Your Trusted Guide to Traveling Across Africa</h2>
+          <p>Godson Travel Agency was founded with one goal: to make travel from Lagos to the rest of Africa stress-free, affordable, and reliable. We understand the challenges travelers face — confusing visa processes, unreliable agents, and hidden fees — and we built our agency to solve exactly that.</p>
+          <p>Whether you're traveling for business, leisure, or family, our team works closely with you from the first inquiry to your safe return home.</p>
+
+          <div class="values-list">
+            <div class="value-item">
+              <div class="dot">💙</div>
+              <div><h4>Honesty First</h4><p>Transparent pricing, no hidden charges, ever.</p></div>
+            </div>
+            <div class="value-item">
+              <div class="dot">⚡</div>
+              <div><h4>Fast & Reliable</h4><p>Quick turnaround on bookings and travel documents.</p></div>
+            </div>
+            <div class="value-item">
+              <div class="dot">🌍</div>
+              <div><h4>Local Expertise</h4><p>Deep knowledge of African travel routes and requirements.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="big-emoji">🧳</div>
+          <h4>Godson Travel Agency</h4>
+          <p>Based in Lagos, Nigeria — connecting you to the continent, one trip at a time.</p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="step-num">1</div>
+          <h4>Tell Us Your Plan</h4>
+          <p>Share your destination, dates, and budget with our team.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">2</div>
+          <h4>We Find Options</h4>
+          <p>We compare flights, hotels, and routes to find the best fit.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">3</div>
+          <h4>Handle Documentation</h4>
+          <p>We assist with visas and travel requirements where needed.</p>
+        </div>
+        <div class="timeline-step">
+          <div class="step-num">4</div>
+          <h4>You Travel, Worry-Free</h4>
+          <p>Sit back — your booking is confirmed and support is a call away.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!--  SERVICES PAGE                -->
+<!-- ============================= -->
+<section class="page" id="page-services">
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our Services</span>
+        <h2>Everything You Need for Your Trip Across Africa</h2>
+        <p>Pick a service below and click "Book Now" to send us your request by email.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-emoji">✈️</div>
+          <h3>Flight Booking</h3>
+          <p>Affordable flights from Lagos to major cities across Africa, booked and confirmed quickly.</p>
+          <a class="book-btn" href="mailto:info@godsontravel.com?subject=Flight%20Booking%20Request&body=Hello%20Godson%20Travel%20Agency%2C%0A%0AI%20would%20like%20to%20book%20a%20flight.%20Here%20are%20my%20details%3A%0A-%20Departure%3A%20Lagos%0A-%20Destination%3A%0A-%20Travel%20Date%3A%0A-%20Number%20of%20travelers%3A">Book Now →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-emoji">📄</div>
+          <h3>Visa & Documentation</h3>
+          <p>Guidance and support with visa applications and required travel documents for your destination.</p>
+          <a class="book-btn" href="mailto:info@godsontravel.com?subject=Visa%20%26%20Documentation%20Request&body=Hello%20Godson%20Travel%20Agency%2C%0A%0AI%20need%20help%20with%20visa%2Fdocumentation%20for%3A%0A-%20Destination%3A%0A-%20Travel%20Date%3A">Book Now →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-emoji">🗺️</div>
+          <h3>Custom Tour Packages</h3>
+          <p>Tailor-made itineraries for safaris, city tours, and cultural experiences across the continent.</p>
+          <a class="book-btn" href="mailto:info@godsontravel.com?subject=Custom%20Tour%20Package%20Request&body=Hello%20Godson%20Travel%20Agency%2C%0A%0AI%20am%20interested%20in%20a%20custom%20tour%20package%20to%3A%0A-%20Destination%3A%0A-%20Preferred%20Dates%3A%0A-%20Number%20of%20travelers%3A">Book Now →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-emoji">🏨</div>
+          <h3>Hotel Reservations</h3>
+          <p>We reserve comfortable, well-reviewed accommodation that fits your budget and travel style.</p>
+          <a class="book-btn" href="mailto:info@godsontravel.com?subject=Hotel%20Reservation%20Request&body=Hello%20Godson%20Travel%20Agency%2C%0A%0AI%20would%20like%20to%20book%20a%20hotel%20in%3A%0A-%20City%2FCountry%3A%0A-%20Check-in%3A%0A-%20Check-out%3A">Book Now →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-emoji">🚐</div>
+          <h3>Airport Transfers</h3>
+          <p>Reliable pickup and drop-off arrangements so you arrive and depart without any stress.</p>
+          <a class="book-btn" href="mailto:info@godsontravel.com?subject=Airport%20Transfer%20Request&body=Hello%20Godson%20Travel%20Agency%2C%0A%0AI%20need%20an%20airport%20transfer%20for%3A%0A-%20City%3A%0A-%20Date%20%26%20Time%3A">Book Now →</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-emoji">👥</div>
+          <h3>Group Travel Packages</h3>
+          <p>Special rates and coordinated itineraries for families, churches, and corporate groups.</p>
+          <a class="book-btn" href="mailto:info@godsontravel.com?subject=Group%20Travel%20Request&body=Hello%20Godson%20Travel%20Agency%2C%0A%0AI%20would%20like%20a%20group%20travel%20package%20for%3A%0A-%20Group%20size%3A%0A-%20Destination%3A%0A-%20Travel%20Dates%3A">Book Now →</a>
+        </div>
+
+      </div>
+
+      <div class="booking-note">
+        <div class="icon-circle">💬</div>
+        <div class="booking-note-text">
+          <h4>Not sure which service you need?</h4>
+          <p>Click "Email Us" on the Contact page and our team will help you plan the right trip.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!--  CONTACT PAGE                 -->
+<!-- ============================= -->
+<section class="page" id="page-contact">
+  <div class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>We'd Love to Plan Your Next Trip</h2>
+        <p>Reach out by email and our team will respond as soon as possible.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Contact Information</h3>
+          <p>Have a question about a destination, price, or booking? Send us a message — no forms, just one click.</p>
+
+          <div class="contact-row">
+            <div class="icon-circle">📧</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:info@godsontravel.com">info@godsontravel.com</a>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="icon-circle">📍</div>
+            <div>
+              <h4>Location</h4>
+              <p>Lagos, Nigeria</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="icon-circle">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <p>+234 800 000 0000</p>
+            </div>
+          </div>
+
+          <div class="email-btn-wrap">
+            <a href="mailto:info@godsontravel.com?subject=Travel%20Enquiry&body=Hello%20Godson%20Travel%20Agency%2C%0A%0AI%20would%20like%20to%20enquire%20about%3A" class="btn btn-primary">✉️ Email Us</a>
+          </div>
+        </div>
+
+        <div class="contact-side">
+          <h3>Follow Our Journey</h3>
+          <p>Stay updated with travel tips, deals, and destination highlights.</p>
+          <div class="social-row">
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="white" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="white" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 9h3V5h-3c-2.2 0-4 1.8-4 4v2H8v4h2v6h4v-6h3l1-4h-4V9c0-.6.4-1 1-1z" fill="white"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 0 0-7.8 13.4L3 21l4.8-1.2A9 9 0 1 0 12 3z" stroke="white" stroke-width="1.5"/><path d="M8.5 9.5c0 4 3 7 7 7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </a>
+          </div>
+
+          <ul class="hours-list">
+            <li><span>Monday – Friday</span><span>8:00am – 6:00pm</span></li>
+            <li><span>Saturday</span><span>9:00am – 3:00pm</span></li>
+            <li><span>Sunday</span><span>Closed</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= -->
+<!--  FOOTER (always visible)      -->
+<!-- ============================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 16.5L22 8L18 20L12 16L8 22L7 15.5L2 16.5Z" fill="#2f7ef7"/>
+          </svg>
+          Godson Travel Agency
+        </div>
+        <p>Your trusted partner for travel from Lagos to destinations across Africa. Flights, visas, tours and more — handled with care.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a data-link data-page="home">Home</a></li>
+          <li><a data-link data-page="about">About</a></li>
+          <li><a data-link data-page="services">Services</a></li>
+          <li><a data-link data-page="contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a data-link data-page="services">Flight Booking</a></li>
+          <li><a data-link data-page="services">Visa Support</a></li>
+          <li><a data-link data-page="services">Tour Packages</a></li>
+          <li><a data-link data-page="services">Hotel Reservations</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@godsontravel.com">info@godsontravel.com</a></li>
+          <li><a>+234 800 000 0000</a></li>
+          <li><a>Lagos, Nigeria</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Godson Travel Agency. All rights reserved.</p>
+      <p>Built with ❤️ for travelers exploring Africa.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* =========================================================
+     GODSON TRAVEL AGENCY — SPA ROUTING SCRIPT
+     Handles page switching, active nav highlighting,
+     history/pathname support (with safe fallbacks), and
+     mobile menu toggle.
+  ========================================================= */
+
+  (function () {
+    "use strict";
+
+    // Map of route -> page id
+    var routes = {
+      "home": "page-home",
+      "about": "page-about",
+      "services": "page-services",
+      "contact": "page-contact"
+    };
+
+    var defaultPage = "home";
+
+    // Cache DOM elements
+    var pages = document.querySelectorAll("section.page");
+    var navLinks = document.querySelectorAll('[data-link]');
+    var navbar = document.getElementById("navbar");
+    var menuToggle = document.getElementById("menuToggle");
+    var navLinksContainer = document.getElementById("navLinks");
+
+    // Set footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    /**
+     * Show a given page by key ("home", "about", etc.)
+     * Hides all other page sections and updates active nav styling.
+     */
+    function showPage(pageKey) {
+      if (!routes.hasOwnProperty(pageKey)) {
+        pageKey = defaultPage;
+      }
+
+      // Hide all pages, then show the target page
+      pages.forEach(function (section) {
+        section.classList.remove("active");
+      });
+      var target = document.getElementById(routes[pageKey]);
+      if (target) {
+        target.classList.add("active");
+      }
+
+      // Update active state on top nav links only (not footer links)
+      document.querySelectorAll('nav.nav-links [data-link]').forEach(function (link) {
+        if (link.getAttribute("data-page") === pageKey) {
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+
+      // Scroll to top for a fresh "page" feel
+      window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+
+      // Close mobile menu after navigating
+      navLinksContainer.classList.remove("open");
+    }
+
+    /**
+     * Navigate to a page: update the visible section AND
+     * attempt to update the browser URL via pushState.
+     * Falls back gracefully if pushState is unavailable
+     * (e.g. local file preview, sandboxed iframe).
+     */
+    function navigateTo(pageKey, addToHistory) {
+      showPage(pageKey);
+
+      if (addToHistory !== false) {
+        var cleanPath = pageKey === "home" ? "/" : "/" + pageKey;
+        try {
+          history.pushState({ page: pageKey }, "", cleanPath);
+        } catch (err) {
+          // pushState not available (local file:// or restricted preview) —
+          // simply continue without altering the URL.
+        }
+      }
+    }
+
+    // Wire up every nav link (header + footer)
+    navLinks.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        var pageKey = link.getAttribute("data-page");
+        navigateTo(pageKey, true);
+      });
+    });
+
+    // Support browser Back / Forward buttons
+    window.addEventListener("popstate", function (e) {
+      var pageKey = (e.state && e.state.page) ? e.state.page : detectPageFromPath();
+      showPage(pageKey);
+    });
+
+    /**
+     * Try to read window.location.pathname to determine which
+     * page to show on load (supports direct links like /about
+     * when .htaccess routing serves this same index.html).
+     * Falls back to the home page if pathname is unavailable
+     * or unrecognized (e.g. local file preview).
+     */
+    function detectPageFromPath() {
+      try {
+        var path = window.location.pathname || "/";
+        var clean = path.replace(/^\/+|\/+$/g, "").toLowerCase(); // trim slashes
+        if (clean === "" ) return defaultPage;
+        if (routes.hasOwnProperty(clean)) return clean;
+        return defaultPage;
+      } catch (err) {
+        return defaultPage;
+      }
+    }
+
+    // Initial page load: detect route from URL, else default to Home
+    showPage(detectPageFromPath());
+
+    // Sticky navbar shadow on scroll
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 10) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Mobile menu toggle
+    menuToggle.addEventListener("click", function () {
+      navLinksContainer.classList.toggle("open");
+    });
+
+  })();
+</script>
+
+</body>
+</html>
